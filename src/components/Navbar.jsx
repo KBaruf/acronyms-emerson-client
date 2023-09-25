@@ -17,7 +17,7 @@ export default function Navbar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar>
         <Toolbar>
-          <div>
+          <div onClick={() => window.location.reload()}>
             <IconButton size='large' edge='start' color='inherit' aria-label='menu' sx={{ mr: 2 }}>
               <MenuBookIcon fontSize='large' />
             </IconButton>

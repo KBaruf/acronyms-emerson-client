@@ -13,7 +13,7 @@ import Loading from './Loading';
 
 export default function DisplayCard({ searchedValue }) {
   // fetch request
-  const { data, error, loading } = useFetch(`http://localhost:3000/api/v1/acronym/${searchedValue}`);
+  const { data, error, loading } = useFetch(`https://acronymsatemerson.onrender.com/api/v1/acronym/${searchedValue}`);
   const results = data ? data?.results : '';
   const { acronym, name, context, definition, _id } = results || {};
 
@@ -50,7 +50,7 @@ export default function DisplayCard({ searchedValue }) {
 
   const handleButtonClick = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/acronym/${_id}`, {
+      const response = await fetch(`https://acronymsatemerson.onrender.com/api/v1/acronym/${_id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

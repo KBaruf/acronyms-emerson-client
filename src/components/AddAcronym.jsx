@@ -64,7 +64,7 @@ export default function AddAcronym({ setAddNewAcronym }) {
   const handleAddNewAcronym = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/api/v1/acronym', {
+      const response = await fetch('https://acronymsatemerson.onrender.com/api/v1/acronym', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

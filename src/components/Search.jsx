@@ -3,19 +3,25 @@ import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
+import Alert from '@mui/material/Alert';
 
 const Search = ({ getValue }) => {
-  const [seachedValue, setSeachedValue] = useState('');
+  const [searchedValue, setSeachedValue] = useState('');
+  const [searchEmpty, setSearchEmpty] = useState(false);
   const searchHandler = (e) => {
     setSeachedValue(e.target.value);
   };
 
   return (
     <Box sx={{ mx: 'auto', mt: '6rem', mb: '2rem', textAlign: 'center' }}>
-      <TextField value={seachedValue} onChange={searchHandler} id='search' label='search acronym' variant='outlined' fullWidth />
+      <TextField value={searchedValue} onChange={searchHandler} id='search' label='search acronym' variant='outlined' fullWidth />
       <Button
         onClick={() => {
-          getValue(seachedValue);
+          if (!searchedValue) {
+            setSearchEmpty(true);
+            return;
+          }
+          getValue(searchedValue);
           setSeachedValue('');
         }}
         sx={{ my: '1rem' }}
@@ -24,6 +30,11 @@ const Search = ({ getValue }) => {
       >
         Search
       </Button>
+      {searchEmpty && (
+        <Alert sx={{ display: 'flex', alignItems: 'center', height: '2rem' }} severity='error'>
+          {<p>Please enter an Acronym before searching</p>}
+        </Alert>
+      )}
       <div style={{ width: '100%', margin: '2rem auto' }}>
         <hr />
       </div>

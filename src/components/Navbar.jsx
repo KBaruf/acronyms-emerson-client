@@ -22,11 +22,35 @@ export default function Navbar() {
               <MenuBookIcon fontSize='large' />
             </IconButton>
           </div>
-          <Typography variant='h6' component='div' sx={{ fontWeight: 'bold', flexGrow: 1 }}>
+          <Typography
+            variant='h6'
+            component='div'
+            sx={{
+              fontWeight: 'bold',
+              flexGrow: 1,
+              '@media (max-width: 600px)': {
+                fontSize: '1rem',
+              },
+              '@media (max-width: 400px)': {
+                fontSize: '0.9rem',
+              },
+            }}
+          >
             Acronyms@Emerson
           </Typography>
           <div onClick={handlerAddClick}>
-            <Button color='inherit' sx={{ marginRight: '6rem' }}>
+            <Button
+              color='inherit'
+              sx={{
+                marginRight: '6rem',
+                '@media (max-width: 600px)': {
+                  marginRight: '0rem',
+                },
+                '@media (max-width: 400px)': {
+                  fontSize: '0.8rem',
+                },
+              }}
+            >
               <AddIcon sx={{ color: '#00c853' }} />
               Add Acronym
             </Button>

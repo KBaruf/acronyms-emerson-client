@@ -75,12 +75,12 @@ export default function DisplayCard({ searchedValue }) {
     <Box sx={{ minWidth: 275, pt: '1rem', padding: '0', transform: edit ? 'scale(1.02)' : '', transition: edit ? 'transform 0.3s ease-in-out' : '' }}>
       {error ||
         (!results && (
-          <Alert sx={{ display: 'flex', alignItems: 'center' }} severity='error'>
-            {!searchedValue ? <p>Please enter an Acronym before searching</p> : <p>Searched Acronym ({<span style={{ fontWeight: 'bold', padding: '0 3px' }}>{searchedValue}</span>}) was not found</p>}
+          <Alert sx={{ display: 'flex', alignItems: 'center', height: '2rem' }} severity='error'>
+            {<p>Searched Acronym ({<span style={{ fontWeight: 'bold', padding: '0 3px' }}>{searchedValue}</span>}) was not found</p>}
           </Alert>
         ))}
       {fetchError && (
-        <Alert sx={{ display: 'flex', alignItems: 'center' }} severity='error'>
+        <Alert sx={{ display: 'flex', alignItems: 'center', height: '2rem' }} severity='error'>
           {<p>There was an error editing acronym details. Please try again</p>}
         </Alert>
       )}
@@ -116,7 +116,7 @@ export default function DisplayCard({ searchedValue }) {
               <Typography sx={{ fontWeight: 'bold', mb: '2px', ml: 'auto' }} variant='h6'>
                 Definition
               </Typography>
-              <textarea style={{ ...textInputStyles, textTransform: 'capitalize', height: 'auto' }} value={addDefinition ? addDefinition : definition || 'N/A'} onChange={addDefinitionHandler} type='text' readOnly={!edit} />
+              <textarea style={{ ...textInputStyles, textTransform: 'capitalize', minHeight: '50px', resize: 'vertical' }} value={addDefinition ? addDefinition : definition || 'N/A'} onChange={addDefinitionHandler} type='text' readOnly={!edit} />
             </CardContent>
           </CardContent>
         </Card>

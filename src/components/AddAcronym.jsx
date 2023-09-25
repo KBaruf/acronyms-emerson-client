@@ -41,7 +41,6 @@ export default function AddAcronym({ setAddNewAcronym }) {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 900,
     bgcolor: 'background.paper',
     border: '2px solid #1976d2',
     boxShadow: 24,
@@ -101,8 +100,34 @@ export default function AddAcronym({ setAddNewAcronym }) {
     }
   };
   return (
-    <Modal open={open} onClose={handleOpen} aria-labelledby='modal-modal-title' aria-describedby='modal-modal-description'>
-      <Box sx={style}>
+    <Modal
+      open={open}
+      onClose={handleOpen}
+      aria-labelledby='modal-modal-title'
+      aria-describedby='modal-modal-description'
+      sx={{
+        '& .modal-container': {
+          width: '900px',
+        },
+
+        '@media (max-width: 700px)': {
+          '& .modal-container': {
+            width: '450px',
+          },
+        },
+        '@media (max-width: 600px)': {
+          '& .modal-container': {
+            width: '350px',
+          },
+        },
+        '@media (max-width: 400px)': {
+          '& .modal-container': {
+            width: '250px',
+          },
+        },
+      }}
+    >
+      <Box sx={style} className='modal-container'>
         {error && (
           <Alert sx={{ display: 'flex', alignItems: 'center', mb: '1rem' }} severity='error'>
             {addAcronym?.length < 1 ? <p>Please add an Acronym before saving!</p> : errorMessage ? <p>{errorMessage}</p> : <p>There was an error adding ({addAcronym}). Please try again!</p>}

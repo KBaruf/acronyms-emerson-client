@@ -87,7 +87,7 @@ export default function DisplayCard({ searchedValue }) {
       {success && <Alert severity='success'>{`Acronym (${acronym}) was updated Successfully`}</Alert>}
 
       <Typography variant='h5' component='div' sx={{ fontFamily: 'roboto', fontWeight: 'bold', flexGrow: 1, textAlign: 'center', pb: '10px' }}>
-        Newly Searched Acronyms
+        Searched Acronym
       </Typography>
       {loading ? (
         <Loading />

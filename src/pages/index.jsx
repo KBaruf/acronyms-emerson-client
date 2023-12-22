@@ -6,7 +6,7 @@ import DisplayCard from '../components/Display';
 
 const HomePage = () => {
   const [addNewAcronym, setAddNewAcronym] = useState(false);
-  const [searchedValue, setSeachedValue] = useState('sdla');
+  const [searchedValue, setSeachedValue] = useState('sdlc');
   const getValue = (value) => setSeachedValue(value);
   const newAcronym = (bool) => {
     setAddNewAcronym(bool);
